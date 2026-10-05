@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ward Watch: protecting patients from cyber attacks</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;800&family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="bar" id="bar" hidden>
+  <h1>Ward Watch</h1>
+  <ol class="steps" id="steps"><li>Signed in</li><li>Problem found</li><li>Problem fixed</li></ol>
+  <div class="who"><span id="who"></span><button class="btn small" id="out">Sign out</button></div>
+</header>
+
+<!-- Screen 1: login -->
+<section class="screen on" id="s1">
+  <div class="hero">
+    <h1>Ward Watch</h1>
+    <p class="big">Cyber protection for hospital networks. Find the threat, keep patients safe, and let a person decide.</p>
+    <p>Demo only. Every device and connection is simulated. No real patients or systems.</p>
+  </div>
+  <form class="login" id="form">
+    <h2>Staff sign in</h2>
+    <label for="u">Username</label>
+    <input id="u" autocomplete="off">
+    <label for="p">Password</label>
+    <input id="p" type="password" autocomplete="off">
+    <p class="err" id="err" role="alert"></p>
+    <button class="btn main" id="signin">Sign in</button>
+    <p class="note">Demo account: <b>officer</b> and <b>ward123</b>. A real hospital would use staff single sign-on with a second step.</p>
+  </form>
+</section>
+
+<!-- Screen 2: problem -->
+<section class="screen" id="s2">
+  <div class="grid">
+    <div>
+      <svg id="map2" viewBox="0 0 700 370" role="img" aria-label="Hospital map showing the problem"></svg>
+      <p class="hint">Red arrows are connections that should not exist.</p>
+    </div>
+    <aside>
+      <div class="banner bad" id="b2">Patients are at risk</div>
+      <p class="say" id="say2"></p>
+      <div id="cards"></div>
+      <button class="btn main" id="next" disabled>See the result</button>
+    </aside>
+  </div>
+</section>
+
+<!-- Screen 3: fixed -->
+<section class="screen" id="s3">
+  <div class="grid">
+    <div>
+      <svg id="map3" viewBox="0 0 700 370" role="img" aria-label="Hospital map after the fix"></svg>
+      <p class="hint">Green arrows were stopped by a person's approval. Amber arrows were left open.</p>
+    </div>
+    <aside>
+      <div class="banner" id="b3"></div>
+      <div class="stats" id="stats"></div>
+      <h2>What happened</h2>
+      <ul class="report" id="report"></ul>
+      <div class="row">
+        <button class="btn main" id="again">Run the drill again</button>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<script src="app.js"></script>
+</body>
+</html>
